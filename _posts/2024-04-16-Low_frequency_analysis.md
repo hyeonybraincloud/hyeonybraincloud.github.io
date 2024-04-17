@@ -141,7 +141,7 @@ $A_v = -g_{m1}(r_{O1} \vert \vert r_{O2})$
 
 $V_{out} = -(g_{m1} + g_{m2})V_{in} (r_{O1} \vert\vert r_{O2})$
 
-$A_v = -(g_{m1} + g_(m2))(r_{O1} \vert\vert r_{O2})$
+$A_v = -(g_{m1} + g_{m2})(r_{O1} \vert\vert r_{O2})$
 
 CS stage with current-source load와 동일한 출력 저항을 가지지만, transconductance는 CS stage with Active load가 크다.
 
@@ -155,7 +155,7 @@ deep-triode region에서 bias된 MOS($M_2$)는 CS stage에서 가변저항의 �
 
 $A_v = -g_{m1}R_{on2}$일 때
 
-$R_{on2} = \frac{1}{\mu_p C_{ox}(W/L)_2 (V_{DD} - V_b - \vert V_{TH,p}\vert)}$
+$R_{on2} = \frac{1}{\mu_p C_{ox} (W/L)_2 (V_{DD} - V_b - \vert V_{TH,p} \vert)}$
 
 위 식에 의해, $R_{on2}$은 $\mu_p C_{ox}$, $V_b$, $V_{TH,p}$로 이루어져 있어서, PVT(Process, Voltage, Temperature)에 따라 그 값이 변한다.
 
@@ -208,3 +208,26 @@ $R_{output}' = r_o$
 $R_S$가 있을 때:
 
 $R_{output}' \approx (1+(g_m + g_{mb})R_S)r_o$
+
+**1.1.6 Common-Gate[CG] Amplifier**
+
+다음 그림은 CG mode의 amplifier을 나타낸 것이다.
+
+![[Figure_50]_CG](../images/2024-04-16-Low_frequency_analysis/[Figure_50]_CG.jpg)
+
+$R_{in} = \frac{1}{g_m}$
+
+$v_o = -iR_D$, $i=-\frac{v_i}{1/g_m}$,
+
+$A \equiv \frac{v_o}{v_i}=g_m R_D$
+
+$R_O = R_D$
+
+$\frac{v_i}{v_{sig}} = \frac{R_{in}}{R_{in}+R_{sig}}=\frac{1/g_m}{1/g_m+R_{sig}}$
+
+$G_v=\frac{v_o}{v_{sig}}=\frac{v_i}{v_{sig}} \frac{v_o}{v_i}$
+
+$=\frac{1/g_m}{R_{sig}+1/g_m} (g_m R_D)=\frac{R_D}{R_{sig} + 1/g_m}$
+
+**※ Input Resistance**
+
