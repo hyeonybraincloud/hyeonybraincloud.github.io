@@ -213,7 +213,7 @@ $R_{output}' \approx (1+(g_m + g_{mb})R_S)r_o$
 
 다음 그림은 CG mode의 amplifier을 나타낸 것이다.
 
-![[Figure_50]_CG](../images/2024-04-16-Low_frequency_analysis/[Figure_50]_CG.jpg)
+![[Figure_50]_CG]({{site.url}}/images/2024-04-16-Low_frequency_analysis/[Figure_50]_CG.jpg)
 
 $R_{in} = \frac{1}{g_m}$
 
