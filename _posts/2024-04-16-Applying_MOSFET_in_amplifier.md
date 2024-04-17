@@ -145,7 +145,7 @@ $V_{OV}$가 커질수록 일반적으로 더 높은 $I_D$가 발생하고, 이�
 
 다음 그림처럼 CS mode의 소신호 등가회로를 나타낼 수 있다.
 
-![[Figure_32]_small-signal_equivalent-circuit]({{site.url}}/images/2024-04-16-first/[Figure_32]_small-signal_equivalent-circuit.jpg)
+![[Figure_32]_small-signal_equivalent-circuit]({{site.url}}/images/2024-04-16-Applying_MOSFET_in_amplifier/[Figure_32]_small-signal_equivalent-circuit.jpg)
 
 Saturation에서의 drain-source resistance는 $r_o=\frac{\left\vert V_A \right\vert}{I_D}$
 
@@ -155,7 +155,7 @@ Small-signal gain은 $A_v \equiv \frac{v_d}{v_{gs}}=-g_m(R_D\vert\vert r_o)=-g_m
 
 한편, body effect까지 고려하면 small-signal equivalent-circuit은 다음 그림과 같다.
 
-![[Figure_33]_small-signal_equivalent-circuit_with_body-effect]({{site.url}}/images/2024-04-16-first/[Figure_33]_small-signal_equivalent-circuit_with_body-effect.jpg)
+![[Figure_33]_small-signal_equivalent-circuit_with_body-effect]({{site.url}}/images/2024-04-16-Applying_MOSFET_in_amplifier/[Figure_33]_small-signal_equivalent-circuit_with_body-effect.jpg)
 
 body effect 때문에 bulk(body) potential은 $V_{TH}$에 영향을 미쳐서 $V_{OV}$에까지 영향을 끼친다.
 
@@ -173,17 +173,17 @@ body effect까지 고려한 small-signal equivalent-circuit model은 보통 low-
 
 한편, 현실적으로 각 단자는 그 재료의 저항성으로 일정한 저항값을 가진다. 그런데 다음 그림처럼 folding으로 $R_G$을 4배나 감소시키는 등 적절한 layout은 그러한 저항을 최소화할 수 있다. $R_G$은 줄이면 줄일수록 좋다.
 
-![[Figure_34]_reducing_gate_resistance]({{size.url}}/images/2024-04-16-first/[Figure_34]_reducing_gate_resistance.jpg)
+![[Figure_34]_reducing_gate_resistance]({{site.url}}/images/2024-04-16-Applying_MOSFET_in_amplifier/[Figure_34]_reducing_gate_resistance.jpg)
 
 **※ T equivalent-circuit model**
 
-![[Figure_36]_T_equivalent_circuit]({{site.url}}/images/2024-04-16-first/[Figure_36]_T_equivalent_circuit.jpg)
+![[Figure_36]_T_equivalent_circuit]({{site.url}}/images/2024-04-16-Applying_MOSFET_in_amplifier/[Figure_36]_T_equivalent_circuit.jpg)
 
 **1.1.5 NMOS vs. PMOS**
 
 기존까지 다뤘던 것은 NMOS이고, 다음 그림은 small-signal model을 PMOS에 관해 나타낸 것이다.
 
-![[Figure_35]_apply_with_PMOS]({{site.url}}/images/2024-04-16-first/[Figure_35]_apply_with_PMOS.jpg)
+![[Figure_35]_apply_with_PMOS]({{site.url}}/images/2024-04-16-Applying_MOSFET_in_amplifier/[Figure_35]_apply_with_PMOS.jpg)
 
 보통 CMOS 측면에서 NMOS가 PMOS보다 우수하다. PMOS는 hole의 낮은 mobility($\mu_p C_{ox}  \approx 0.5 \mu_n C_{ox}$; 공정마다 다름) 때문에 상대적으로 낮은 current drive와 conductance을 보인다. 반면, NMOS는 높은 output resistance로 좀 더 이상적인 current source와 높은 gain을 제공한다. 따라서 실제로 PMOS보다는 NMOS가 선호된다.
 
