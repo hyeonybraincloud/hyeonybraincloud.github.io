@@ -9,7 +9,7 @@ use_math: true
 
 **1.1.1 Basic MOS Amplifier Configurations** 
 
-![[Figure_37]_three_basic_configurations]({{site.url}}/images/2024-04-16-second/[Figure_37]_three_basic_configurations.jpg)
+![[Figure_37]_three_basic_configurations]({{site.url}}/images/2024-04-16-Low_frequency_analysis/[Figure_37]_three_basic_configurations.jpg)
 
 (a): Common Source(CS, Grounded Source)
 
@@ -21,7 +21,7 @@ use_math: true
 
 **1.1.2 Input/Output Resistance**
 
-![[Figure_38]_input_and_output_resistance](../images/2024-04-16-second/[Figure_38]_input_and_output_resistance.jpg)왼쪽 그림은 input resistance에 관하여 나타낸 것이며, 그 저항에 대한 식은 다음과 같다.
+![[Figure_38]_input_and_output_resistance](../images/2024-04-16-Low_frequency_analysis/[Figure_38]_input_and_output_resistance.jpg)왼쪽 그림은 input resistance에 관하여 나타낸 것이며, 그 저항에 대한 식은 다음과 같다.
 
 $R_{input}= \frac{v_i}{i_i}$
 
