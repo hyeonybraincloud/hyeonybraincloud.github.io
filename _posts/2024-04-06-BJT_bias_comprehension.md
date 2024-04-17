@@ -23,7 +23,7 @@ $V_{CC}=R_C(I_B+I_C)+R_BI_B+V_{BE}=R_CI_B+R_C\beta I_B+R_BI_B+V_{BE}=R_C(1+\beta
 
 $I_B=\frac{V_{CC}-V_{BE}}{R_B+(1+\beta)R_C}$
 
-$I_C=\beta I_B+(1+\beta)I_{CO}\approx\betaI_B$
+$I_C=\beta I_B+(1+\beta)I_{CO}\approx \beta I_B$
 
 ($I_{CO}$가 매우 작아 無)
 

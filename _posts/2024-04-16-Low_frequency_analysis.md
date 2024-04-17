@@ -25,15 +25,15 @@ use_math: true
 
 $R_{input}= \frac{v_i}{i_i}$
 
-input resistance은 MOSFET의 Gate에 인가되는 signal에 대한 저항을 나타낸다. 즉, Gate 측에서의 전압 및 전류와 관련이 있다. 일반적으로 input resistance는 무한대라 볼 수 있지만, MOSFET이 작동할 때에는 $V_{GS}$에 따라 변할 수 있다.
+input resistance은 MOSFET의 Gate에 인가되는 signal에 대한 저항을 나타낸다. 즉, $V_G$ 및 $I_G$와 관련이 있다. 일반적으로 input resistance는 무한대라 볼 수 있지만, MOSFET이 작동할 때에는 $V_{GS}$에 따라 변할 수 있다.
 
 한편, 오른쪽 그림은 output resistance에 관하여 나타낸 것이며, 그 저항에 대한 식은 다음과 같다.
 
 $R_{output}= \frac{v_o}{i_o}$
 
-output resistance은 MOSFET의 Drain-Source 경로에서의 전류에 대한 저항을 가리킨는데, 주로 Drain 측에서의 Voltage와 $I_D$가 연관성이 있다. 또한, output resistance는 출력 신호에 영향을 미친다.
+output resistance은 MOSFET의 Drain-Source 경로에서의 전류에 대한 저항을 가리킨는데, 주로 $V_D$와 $I_D$가 연관성이 있다. 또한, output resistance는 출력 신호에 영향을 미친다.
 
-Driving-pointing resistance는 MOSFET이 동작하는 특정 지점에서의 $V-I$의 관계를 나타낸다. 또한, MOSFET이 전압을 조절하는 동안 발생하는 내부 전압 손실을 나타내므로, input/output resistance와 관련된다.
+Driving-point resistance는 MOSFET이 동작하는 특정 지점에서의 $V-I$의 관계를 나타낸다. 또한, MOSFET이 전압을 조절하는 동안 발생하는 내부 전압 손실을 나타내므로, input/output resistance와 관련된다.
 
 상기 사항을 CS mode의 MOSFET에 적용하면 다음과 같다.
 
@@ -77,7 +77,7 @@ $V_1=-V_X, V_{bs}=-V_X$
 
 $(g_m + g_{mb}V_X)  + \frac{V_X}{r_O} = I_X$
 
-$\frac{V_X}{I_X} = \frac{1}{g_m + g_{mb} + \frac{1}{r_O}} = \frac{1}{g_m + g_{mb}} \vert\vert r_O \approx \frac{1}{g_m + g_{mb}$
+$\frac{V_X}{I_X} = \frac{1}{g_m + g_{mb} + \frac{1}{r_O}} = \frac{1}{g_m + g_{mb}} \vert\vert r_O \approx \frac{1}{g_m + g_{mb}}$
 
 
 
@@ -97,7 +97,7 @@ $A_v = -\sqrt{\frac{(W/L)_1}{(W/L)_2}} \frac{1}{1 + \eta}$
 
 이는 이득이 bias current와 voltage에 관한 weak function임을 의미하는데, 상대적으로 선형적인 입출력 특성을 나타내어 장점으로 작용한다. 그러나 body effect가 발생할 수 있다.
 
-※ 여기서 weak function이란?
+**※ 여기서 weak function이란?**
 
 입력 변수의 변화가 출력에 미치는 영향이 크지 않고, 일정 범위 내에서는 입출력 간 관계가 거의 일정한 경우를 의미한다. 이는 변화가 비교적 완만하거나 선형적인 경우를 포함한다.
 
@@ -113,9 +113,13 @@ $A_v = -\sqrt{\frac{\mu_n (\frac{W}{L})_1}{\mu_p (\frac{W}{L})_2}}$
 
 $\vert A_v \vert = \frac{\vert V_{GS2} - V_{TH2} \vert}{V_{GS1} - V_{TH1}}$
 
-$I_{D1} = I_{D2} \rightarrow \frac{1}{2} \mu_n C_{ox} (\frac{W}{L})_1 (V_{GS1} - V_{TH1})^2 = \frac{1}{2} \mu_p C_{ox} (\frac{W}{L})_2 (V_{GS2} - V_{TH2})^2$
+$I_{D1} = I_{D2}$ 이므로
 
-$A_v = -\frac{g_{m1}}{g_{m2}} = -\frac{\mu_n C_{ox} (\frac{W}{L})_1 (V_{GS1} - V_{TH1})}{\mu_p C_{ox} (\frac{W}{L})_2 \vert V_{GS2} - V_{TH2} \vert}$
+$\frac{1}{2} \mu_n C_{ox} \left( \frac{W}{L} \right)_1 (V_{GS1} - V_{TH1})^2 = \frac{1}{2} \mu_p C_{ox} \left( \frac{W}{L} \right)_2 (V_{GS2} - V_{TH2})^2$
+
+$A_v = -\frac{g_{m1}}{g_{m2}}$
+
+$= -\frac{\mu_n C_{ox} (\frac{W}{L})_1 (V_{GS1} - V_{TH1})}{\mu_p C_{ox} (\frac{W}{L})_2 \vert V_{GS2} - V_{TH2} \vert}$
 
 $A_v \propto \vert V_{GS2} - V_{TH2} \vert$ or $\frac{1}{\vert V_{GS2} - V_{TH2} \vert}$
 
