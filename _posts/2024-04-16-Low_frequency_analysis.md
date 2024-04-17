@@ -117,7 +117,7 @@ $I_{D1} = I_{D2}$ 이므로
 
 $\frac{1}{2} \mu_n C_{ox} \left( \frac{W}{L} \right)_1 (V_{GS1} - V_{TH1})^2 = \frac{1}{2} \mu_p C_{ox} \left( \frac{W}{L} \right)_2 (V_{GS2} - V_{TH2})^2$
 
-$A_v = -\frac{g_{m1}}{g_{m2}}$
+$A_v = \frac{g_{m1}}{g_{m2}}$
 
 $= -\frac{\mu_n C_{ox} (\frac{W}{L})_1 (V_{GS1} - V_{TH1})}{\mu_p C_{ox} (\frac{W}{L})_2 \vert V_{GS2} - V_{TH2} \vert}$
 
@@ -134,3 +134,77 @@ $M_2$의 width을 증가시켜 $V_{OV}$을 감소시킬 수 있으며, channel-l
 $A_v = -g_{m1}(r_{O1} \vert \vert r_{O2})$
 
 **※ CS stage with Active Load**
+
+![[Figure_46]_CS_stage_with_active_load]({{site.url}}/images/2024-04-16-Low_frequency_analysis/[Figure_46]_CS_stage_with_active_load.jpg)
+
+입력 신호가 load device에도 적용되어 "active"한 load가 되게 한다. 또한, $M_1$과 $M_2$는 병렬로 동작하여 전압 이득을 증가시킨다.
+
+$V_{out} = -(g_{m1} + g_{m2})V_{in} (r_{O1} \vert\vert r_{O2})$
+
+$A_v = -(g_{m1} + g_(m2))(r_{O1} \vert\vert r_{O2})$
+
+CS stage with current-source load와 동일한 출력 저항을 가지지만, transconductance는 CS stage with Active load가 크다.
+
+
+
+**※ CS stage with Triode Load**
+
+![[Figure_47]_CS_stage_with_triode_load]({{site.url}}/images/2024-04-16-Low_frequency_analysis/[Figure_47]_CS_stage_with_triode_load.jpg)
+
+deep-triode region에서 bias된 MOS($M_2$)는 CS stage에서 가변저항의 역할을 한다.여기서 $V_b$는 충분히 낮아서, 모든 output voltage swing에서 $M_2$로 하여금 deep-triode region에 있게 한다.
+
+$A_v = -g_{m1}R_{on2}$일 때
+
+$R_{on2} = \frac{1}{\mu_p C_{ox}(W/L)_2 (V_{DD} - V_b - \vert V_{TH,p}\vert)}$
+
+위 식에 의해, $R_{on2}$은 $\mu_p C_{ox}$, $V_b$, $V_{TH,p}$로 이루어져 있어서, PVT(Process, Voltage, Temperature)에 따라 그 값이 변한다.
+
+한편, 이 방법에서 $V_b$을 정확히 만드는 것은 굉장히 복잡해서 이러한 회로를 구성하는 것은 상당히 난이도가 있다. 그래도 triode load는 diode-connected 방식보다 voltage headroom을 덜 소모하는 장점이 있다.
+
+**1.1.5 CS Amplifier with a Source Resistance**
+
+![[Figure_48]_CS_with_source_resistance]({{site.url}}/images/2024-04-16-Low_frequency_analysis/[Figure_48]_CS_with_source_resistance.jpg)
+
+$v_{gs}=v_i \frac{\frac{1}{g_m}}{\frac{1}{g_m}+R_S}=\frac{v_i}{1+g_mR_S}$
+
+$v_o = -iR_D$
+
+$i= \frac{v_i}{\frac{1}{g_m}+R_S} = \frac{g_m}{1+g_mR_S} v_i$
+
+$A_v = \frac{v_o}{v_i} = -\frac{R_D}{\frac{1}{g_m} + R_S} = -\frac{g_mR_D}{1+g_mR_S}$
+
+$R_in = \infty$, $R_O = R_D$
+
+$A_v = -\frac{R_D}{\frac{1}{g_m} + R_S}$
+
+여기서 전압 이득은 분모를 'Total resistance seen in the source path'로 하고, 분자를 'resistance seen at the drain'으로 한다.
+
+위 방식에 의해, gain은 작아지나, 선형성은 좋아진다. 여기서 $R_S$는 $g_m$을 감소시켰으므로, source-degeneration resistance라고도 불린다.
+
+다음 그림은 $r_o$가 포함된 것이다.
+
+![[Figure_49]_CS_with_source_resistance_when_r_o_included]({{site.url}}/images/2024-04-16-Low_frequency_analysis/[Figure_49]_CS_with_source_resistance_when_r_o_included.jpg)
+
+$v_o=v_s + (i_o + v_s(g_m + g_{mb}))r_o$
+
+$v_o=i_o R_S + (i_o + i_o R_S(g_m + g_{mb}))r_o$
+
+$R_{output}'=\frac{r_o}{i_o}=r_o + (1 + r_o(g_m + g_{mb}))R_S$ ...①
+
+$R_{output}'=R_S + (1+(g_m + g_{mb})R_S)r_o \approx (1+(g_m + g_{mb})R_S)r_o$ ...②
+
+식 ①, ②이 가리키는 것은 동일하지만, 무엇을 공통으로 묶었느냐에 대해서는 차이를 보인다.
+
+식 ①은 $R_S$을 공통으로 묶었다. 여기서 $1+g_m r_o$ 꼴을 볼 수 있는데, 이는 CG mode에서 load가 open되어 있을 때의 gain을 의미한다.
+
+한편, 식 ②은 $r_o$을 공통으로 묶었다. 여기서는 $1+g_m R_S$ 꼴을 볼 수 있는데, 이는 앞서 언급된 degeneration term이다. 이 식을 통해, $r_o$가 증가하면 channel-length modulation이 약화되어, 트랜지스터가 이상에 가깝게 동작하는 것을 알 수 있다.
+
+아래의 식은 $R_S$ 유무에 따른 output resistance의 차이를 나타낸 것이다.
+
+$R_S$가 없을 때:
+
+$R_{output}' = r_o$
+
+$R_S$가 있을 때:
+
+$R_{output}' \approx (1+(g_m + g_{mb})R_S)r_o$
