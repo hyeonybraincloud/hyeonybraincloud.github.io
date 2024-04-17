@@ -9,7 +9,7 @@ use_math: true
 
 **● PN 다이오드의 특성곡선**
 
-![[Figure_1]_PN_diode_characteristic_curve]({{site.url}}/images/2024-03-31-first/[Figure_1]_PN_diode_characteristic_curve-1712025739270-3.png)
+![[Figure_1]_PN_diode_characteristic_curve]({{site.url}}/images/2024-03-31-PN_diode_characteristic_equivalent_model/[Figure_1]_PN_diode_characteristic_curve-1712025739270-3.png)
 
 **① 순바이어스 전류($V_D > V_\gamma$)**
 
@@ -35,7 +35,7 @@ $I_D\cong0$
 
 온도가 상승하면 $V-I$ 특성곡선은 좌측으로 이동한다. 일정한 전류를 유지하려면 온도가 1°C 상승할 때마다 순바이어스 전압을 2.5[mV] 씩 낮추어야 한다.
 
-![[Figure_2]_PN_diode_characteristic_curve_according_to_temperature]({{site.url}}/images/2024-03-31-first/[Figure_2]_PN_diode_characteristic_curve_according_to_temperature.jpg)
+![[Figure_2]_PN_diode_characteristic_curve_according_to_temperature]({{site.url}}/images/2024-03-31-PN_diode_characteristic_equivalent_model/[Figure_2]_PN_diode_characteristic_curve_according_to_temperature.jpg)
 
 
 
@@ -43,7 +43,7 @@ $I_D\cong0$
 
 **3.2.1 직류(대신호) 근사 등가모델**
 
-![[Figure_3]_The_Equivalent_1]({{site.url}}/images/2024-03-31-first/[Figure_3]_The_Equivalent_1.jpg)
+![[Figure_3]_The_Equivalent_1]({{site.url}}/images/2024-03-31-PN_diode_characteristic_equivalent_model/[Figure_3]_The_Equivalent_1.jpg)
 
 ① **비선형 모델**: 실제 다이오드
 
@@ -78,7 +78,7 @@ $r_d\equiv \frac{\triangle V_D}{\triangle I_D}=\frac{dV_D}{dI_D}$
 
 아래 그림은 교류(소신호)를 인가한 다이오드 회로의 특성곡선과 등가회로이다.
 
-![[Figure_3]_The_Equivalent_2]({{site.url}}/images/2024-03-31-first/[Figure_3]_The_Equivalent_2.jpg)
+![[Figure_3]_The_Equivalent_2]({{site.url}}/images/2024-03-31-PN_diode_characteristic_equivalent_model/[Figure_3]_The_Equivalent_2.jpg)
 
 다이오드 전류는 다음과 같다.
 

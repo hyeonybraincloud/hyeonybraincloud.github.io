@@ -11,7 +11,7 @@ use_math: true
 
 MOSFET은 다음 그림처럼 Voltage-controlled Current Source의 역할을 한다.
 
-  ![[Figure_24]_MOSFET_acts_as_voltage_controlled_current_source]({{site.url}}/images/2024-04-17-first/[Figure_24]_MOSFET_acts_as_voltage_controlled_current_source.jpg)
+  ![[Figure_24]_MOSFET_acts_as_voltage_controlled_current_source]({{site.url}}/images/2024-04-16-Applying_MOSFET_in_amplifier/[Figure_24]_MOSFET_acts_as_voltage_controlled_current_source.jpg)
 
 input은 $v_{GS}$이고, output은 $i_D$인데, 이들의 관계식은 아래와 같다.
 
@@ -19,7 +19,7 @@ $i_D=\frac{1}{2} k_n’ \left( \frac{W}{L} \right)(v_{GS}-V_{TH,n})^2=\frac{1}{2
 
 위 식과 다음 그래프에 의해, $v_{GS}$-$i_D$ 관계가 비선형적임을 알 수 있다.
 
-![[Figure_25]_input_output_nonlinear]({{site.url}}/images/2024-04-17-first/[Figure_25]_input_output_nonlinear.jpg)
+![[Figure_25]_input_output_nonlinear]({{site.url}}/images/2024-04-16-Applying_MOSFET_in_amplifier/[Figure_25]_input_output_nonlinear.jpg)
 
 물론, $\vartriangle v_{GS}$가 매우 작으면, 위 그림처럼 선형적인 부분이 있다. 그 부분에서의 기울기, 즉, transconductance(보통 sat.에서 정의)은 다음과 같다.
 
@@ -33,7 +33,7 @@ transconductance amplifier에서 voltage amplifier로의 변화를 위해, 다�
 
 참고로 다음 그림은 **Common-Source[CS] mode amplifier**의 기본 구조이다.
 
-![[Figure_26]_CS_mode_amplifier]({{site.url}}/images/2024-04-17-first/[Figure_26]_CS_mode_amplifier.jpg)
+![[Figure_26]_CS_mode_amplifier]({{site.url}}/images/2024-04-16-Applying_MOSFET_in_amplifier/[Figure_26]_CS_mode_amplifier.jpg)
 
 $v_o=v_{DS}=V_{DD}-R_Di_D$
 
@@ -43,19 +43,19 @@ $v_o=v_{DS}=V_{DD}-R_Di_D$
 
 $\frac{W}{L}$이 일정하면
 
-![[Figure_28]_transconductance_1]({{site.url}}/images/2024-04-17-first/[Figure_28]_transconductance_1.jpg)
+![[Figure_28]_transconductance_1]({{site.url}}/images/2024-04-16-Applying_MOSFET_in_amplifier/[Figure_28]_transconductance_1.jpg)
 
 ② $g_m=\sqrt{2k_n’}\sqrt{\frac{W}{L}}\sqrt{I_D}$
 
 $\frac{W}{L}$이 일정하면
 
-![[Figure_29]_transconductance_2]({{site.url}}/images/2024-04-17-first/[Figure_29]_transconductance_2.jpg)
+![[Figure_29]_transconductance_2]({{site.url}}/images/2024-04-16-Applying_MOSFET_in_amplifier/[Figure_29]_transconductance_2.jpg)
 
 ③ $g_m=\frac{2I_D}{V_{GS}-V_{TH}}=\frac{2I_D}{V_{OV}}$
 
 $I_D$가 일정하면
 
-![[Figure_30]_transconductance_3]({{site.url}}/images/2024-04-17-first/[Figure_30]_transconductance_3.jpg)
+![[Figure_30]_transconductance_3]({{site.url}}/images/2024-04-16-Applying_MOSFET_in_amplifier/[Figure_30]_transconductance_3.jpg)
 
 위 세 가지 표현은 transconductance의 동작을 탐구할 때 유용하다. 여기서 $I_D$와 $V_{OV}$는 bias value인데, bias value가 정의된 device에 어떤 신호가 인가되면, $I_D$ 및 $V_{OV}$이 달라져 $g_m$도 달라지지만, 소신호 분석에서는 그 신호의 진폭이 충분히 작아서 그러한 변화는 무시할 수 있다.
 
@@ -67,11 +67,11 @@ $V_{DS} \ge V_b-V_{TH}$인 한, $M_1$은 saturation region에 있으므로, $I_D
 
 $g_m=\frac{\partial}{\partial V_{GS}}{\frac{1}{2}\mu_nC_{ox}\frac{W}{L}[2(V_{GS}-V_{TH})V_{DS}-V_{DS}^2]}=\mu_nC_{ox}\frac{W}{L}V_{DS}$
 
-![[Figure_31]_when_triode_region_transconductance]({{site.url}}/images/2024-04-17-first/[Figure_31]_when_triode_region_transconductance.jpg)
+![[Figure_31]_when_triode_region_transconductance]({{site.url}}/images/2024-04-16-Applying_MOSFET_in_amplifier/[Figure_31]_when_triode_region_transconductance.jpg)
 
 **1.1.2 The Voltage Transfer Characteristics(VTC)**
 
-![[Figure_27]_VTC]({{site.url}}/images/2024-04-17-first/[Figure_27]_VTC.jpg)
+![[Figure_27]_VTC]({{site.url}}/images/2024-04-16-Applying_MOSFET_in_amplifier/[Figure_27]_VTC.jpg)
 
 Saturation Region에서는 아래 식과 같이 VTC가 비선형적인 양상을 보인다.
 

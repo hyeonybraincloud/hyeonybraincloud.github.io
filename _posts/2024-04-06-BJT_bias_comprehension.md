@@ -11,13 +11,13 @@ use_math: true
 
 **● 전압궤환 바이어스 회로 DC 해석**
 
-![[Figure_10]__Voltage_Feedback_Bias_Circuit]({{site.url}}/images/2024-04-06-first/[Figure_10]__Voltage_Feedback_Bias_Circuit.jpg)
+![[Figure_10]__Voltage_Feedback_Bias_Circuit]({{site.url}}/images/2024-04-06-BJT_bias_comprehension/[Figure_10]__Voltage_Feedback_Bias_Circuit.jpg)
 
 위 그림은 전압궤환 바이어스 회로의 예시이다.
 
 다음 그림은 입력측 등가회로를 나타낸 것이다.
 
-![[Figure_11]_Equivalent_circuit_input]({{site.url}}/images/2024-04-06-first/[Figure_11]_Equivalent_circuit_input.jpg)
+![[Figure_11]_Equivalent_circuit_input]({{site.url}}/images/2024-04-06-BJT_bias_comprehension/[Figure_11]_Equivalent_circuit_input.jpg)
 
 $V_{CC}=R_C(I_B+I_C)+R_BI_B+V_{BE}=R_CI_B+R_C\beta I_B+R_BI_B+V_{BE}=R_C(1+\beta)I_B+R_BI_B+V_{BE}$
 
@@ -25,13 +25,13 @@ $I_B=\frac{V_{CC}-V_{BE}}{R_B+(1+\beta)R_C}$
 
 $I_C=\beta I_B+(1+\beta)I_{CO}\approx\betaI_B$
 
-($I_{CO}$가 매우 작아 무)
+($I_{CO}$가 매우 작아 無)
 
-$I_E=I_B+I_C=(1+\beta)I_B$
+$I_E=I_B+I_C=(1+ \beta )I_B$
 
 다음 그림은 출력측 등가회로를 나타낸 것이다.
 
-![[Figure_12]_Equivalent_circuit_output]({{site.url}}/images/2024-04-06-first/[Figure_12]_Equivalent_circuit_output-1712412961340-4.jpg)
+![[Figure_12]_Equivalent_circuit_output]({{site.url}}/images/2024-04-06-BJT_bias_comprehension/[Figure_12]_Equivalent_circuit_output-1712412961340-4.jpg)
 
 $V_{CC}=R_C(I_B+I_C)+V_{CE}=R_C(1+\beta)I_B+V_{CE}$
 
@@ -47,5 +47,5 @@ $V_{CB}=V_{CE}-V_{BE}=R_BI_B>0$
 
 그러므로 다음 그림과 같이 콘덴서 $C$을 사용하면 , 직류 성분은 부궤환이 걸리게 하고, 교류 성분은 부궤환이 걸리지 않게 하는 회로가 된다.
 
-![[Figure_13]_voltage_feedback_bias_circuit_for_avoiding_signal_gain_reduction]({{site.url}}/images/2024-04-06-first/[Figure_13]_voltage_feedback_bias_circuit_for_avoiding_signal_gain_reduction.jpg)
+![[Figure_13]_voltage_feedback_bias_circuit_for_avoiding_signal_gain_reduction]({{site.url}}/images/2024-04-06-BJT_bias_comprehension/[Figure_13]_voltage_feedback_bias_circuit_for_avoiding_signal_gain_reduction.jpg)
 
