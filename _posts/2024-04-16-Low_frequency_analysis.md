@@ -122,10 +122,6 @@ $ = \frac{1}{2} \mu_p C_{ox} \left( \frac{W}{L} \right)_2 (V_{GS2} - V_{TH2})^2$
 $A_v = \frac{g_{m1}}{g_{m2}}$
 
 $= -\frac{\mu_n C_{ox} (\frac{W}{L})_1 (V_{GS1} - V_{TH1})}{\mu_p C_{ox} (\frac{W}{L})_2 \vert V_{GS2} - V_{TH2} \vert}$
-$$
-= -\frac{\mu_n C_{ox} (\frac{W}{L})_1 (V_{GS1} - V_{TH1})}{\mu_p C_{ox} (\frac{W}{L})_2 \vert V_{GS2} - V_{TH2} \vert}
-$$
-
 
 $A_v \propto \vert V_{GS2} - V_{TH2} \vert$ or $\frac{1}{\vert V_{GS2} - V_{TH2} \vert}$
 
@@ -237,3 +233,98 @@ $=\frac{1/g_m}{R_{sig}+1/g_m} (g_m R_D)=\frac{R_D}{R_{sig} + 1/g_m}$
 
 **※ Input Resistance**
 
+![[Figure_51]_CG_input_resistance]({{site.url}}/images/2024-04-16-Low_frequency_analysis/[Figure_51]_CG_input_resistance.jpg)
+
+$R_{in} \equiv \frac{v_i}{i_i}$
+
+$i_i=(g_m+g_{mb})v_i + i_{ro}$
+
+$i_{ro}=\frac{v_i-v_o}{r_o}= \frac{v_i-i_i R_L}{r_o}$
+
+$i_i=(g_m+g_mb+\frac{1}{r_o})v_i / \left( 1+\frac{R_L}{r_o} \right)$
+
+$\therefore R_{in}=\frac{r_o+R_L}{1+(g_m+g_{mb})r_o}$
+
+for $r_o=\infty \rightarrow R_{in}=\frac{1}{g_m+g_{mb}}$
+
+for $R_L=r_o \rightarrow R_{in} \approx \frac{2}{g_m+g_{mb}}$
+
+for $R_L =\infty \rightarrow R_{in} = \infty$(open circuit)
+
+(b) 회로에서 $R_L$을 open하였을 때,
+
+![[Figure_52]_CG_input_resistance_without_load]({{site.url}}/images/2024-04-16-Low_frequency_analysis/[Figure_52]_CG_input_resistance_without_load.jpg)
+
+$R_i=\infty$ $(i_o=0 \rightarrow i_i=0)$
+
+$v_o=ir_o + v_i=(g_m+g_{mb})r_o v_i + v_i$
+
+$A_{vo}=1+(g_m + g_{mb})r_o$ ...(*)
+
+open-circuit overall voltage gain은
+
+$G_{vo}=A_{vo}=1+(g_m + g_{mb})r_o$
+
+$(i_i=0 \rightarrow v_i = v_{sig})$
+
+한편, $R_{in}$을 다음과 같이 정리할 수 있다.
+
+식 (*)을, $A_{vo} \approx (g_m+g_{mb})r_o \approx A_0$라 하여
+
+$\therefore R_{in} \approx \frac{1}{g_m + g_{mb}}+\frac{R_L}{A_0}$
+
+**※ Output Resistance**
+
+input의 signal source을 고려하지 않으면 다음과 같다.
+
+![[Figure_53]_CG_output_resistance_without_input_signal_source]({{site.url}}/images/2024-04-16-Low_frequency_analysis/[Figure_53]_CG_output_resistance_without_input_signal_source.jpg)
+
+$R_{out} = r_o$인데,
+
+$R_L$을 포함하면 $R_{output1}=r_o \vert\vert R_L$
+
+input의 signal source을 고려하면 다음과 같다.
+
+![[Figure_54]_CG_output_resistance_with_input_signal_source]({{site.url}}/images/2024-04-16-Low_frequency_analysis/[Figure_54]_CG_output_resistance_with_input_signal_source.jpg)
+
+$R_{out}=\frac{v_x}{i_x}=r_o + (1+r_o(g_m+g_{mb}))R_s = r_o+A_{vo}R_s$
+
+$\approx (1+(g_m + g_{mb})R_s)r_o$
+
+이때 $R_L$까지 고려하면
+
+$R_{output2} = (1+(g_m + g_{mb})R_s)r_o \vert\vert R_L \approx R_L$
+
+지금까지 구한 **input resistance**와 **output resistance**종합하면 다음과 같다.
+
+![[Figure_55]_CG_input&output_resistance_summary]({{site.url}}/images/2024-04-16-Low_frequency_analysis/[Figure_55]_CG_input&output_resistance_summary.jpg)
+
+**※ Voltage Gain**
+
+![[Figure_56]_CG_voltage_gain]({{site.url}}/images/2024-04-16-Low_frequency_analysis/[Figure_56]_CG_voltage_gain.jpg)
+
+$R_s$(빨간색 박스 영역)을 고려하지 않으면 다음과 같다.
+
+$v_o = i_o R_L = i_i R_L$
+
+$v_i = i_i R_{in}$
+
+$A_v = \frac{v_o}{v_i} = \frac{R_L}{R_{in}}$
+
+이때 $R_{in} = \frac{r_o + R_L}{A_{vo}}$이므로
+
+$A_v = A_{vo} \frac{R_L}{R_L + r_o}$
+
+$R_s$(빨간색 박스 영역)을 고려하면 다음과 같다.
+
+$v_o = i_o R_L = i_i R_L$
+
+$v_{sig} = i_i(R_s + R_{in})$
+
+$G_v = \frac{R_L}{R_s + R_{in}}$
+
+이때 $R_{in} = \frac{r_o + R_L}{A_{vo}}$이므로
+
+$G_v = A_{vo}\frac{R_L}{R_L+r_o+A_{vo}R_s}$
+
+**1.1.7 Common-Drain[CD] Amplifier or Source Follower**
