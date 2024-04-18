@@ -31,7 +31,7 @@ input resistance은 MOSFET의 Gate에 인가되는 signal에 대한 저항을 �
 
 $R_{output}= \frac{v_o}{i_o}$
 
-output resistance은 MOSFET의 Drain-Source 경로에서의 전류에 대한 저항을 가리킨는데, 주로 $V_D$와 $I_D$가 연관성이 있다. 또한, output resistance는 출력 신호에 영향을 미친다.
+output resistance은 MOSFET의 Drain-Source 경로에서의 전류에 대한 저항을 가리는데, 주로 $V_D$와 $I_D$가 연관성이 있다. 또한, output resistance는 출력 신호에 영향을 미친다.
 
 Driving-point resistance는 MOSFET이 동작하는 특정 지점에서의 $V-I$의 관계를 나타낸다. 또한, MOSFET이 전압을 조절하는 동안 발생하는 내부 전압 손실을 나타내므로, input/output resistance와 관련된다.
 
@@ -115,11 +115,17 @@ $\vert A_v \vert = \frac{\vert V_{GS2} - V_{TH2} \vert}{V_{GS1} - V_{TH1}}$
 
 $I_{D1} = I_{D2}$ 이므로
 
-$\frac{1}{2} \mu_n C_{ox} \left( \frac{W}{L} \right)_1 (V_{GS1} - V_{TH1})^2 = \frac{1}{2} \mu_p C_{ox} \left( \frac{W}{L} \right)_2 (V_{GS2} - V_{TH2})^2$
+$\frac{1}{2} \mu_n C_{ox} \left( \frac{W}{L} \right)_1 (V_{GS1} - V_{TH1})^2$
+
+$ = \frac{1}{2} \mu_p C_{ox} \left( \frac{W}{L} \right)_2 (V_{GS2} - V_{TH2})^2$
 
 $A_v = \frac{g_{m1}}{g_{m2}}$
 
 $= -\frac{\mu_n C_{ox} (\frac{W}{L})_1 (V_{GS1} - V_{TH1})}{\mu_p C_{ox} (\frac{W}{L})_2 \vert V_{GS2} - V_{TH2} \vert}$
+$$
+= -\frac{\mu_n C_{ox} (\frac{W}{L})_1 (V_{GS1} - V_{TH1})}{\mu_p C_{ox} (\frac{W}{L})_2 \vert V_{GS2} - V_{TH2} \vert}
+$$
+
 
 $A_v \propto \vert V_{GS2} - V_{TH2} \vert$ or $\frac{1}{\vert V_{GS2} - V_{TH2} \vert}$
 
