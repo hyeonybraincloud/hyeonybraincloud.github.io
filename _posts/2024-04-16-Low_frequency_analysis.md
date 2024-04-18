@@ -329,11 +329,11 @@ $G_v = A_{vo}\frac{R_L}{R_L+r_o+A_{vo}R_s}$
 
 **1.1.7 Common-Drain[CD] Amplifier or Source Follower**
 
-![[Figure_57]_CD](../images/2024-04-16-Low_frequency_analysis/[Figure_57]_CD.jpg)
+![[Figure_57]_CD]({{site.url}}/images/2024-04-16-Low_frequency_analysis/[Figure_57]_CD.jpg)
 
 $R_{in} = \infty$
 
-![[Figure_58]_CD_without_r_o](../images/2024-04-16-Low_frequency_analysis/[Figure_58]_CD_without_r_o.jpg)
+![[Figure_58]_CD_without_r_o]({{site.url}}/images/2024-04-16-Low_frequency_analysis/[Figure_58]_CD_without_r_o.jpg)
 
 $R_o=\frac{1}{g_m} (r_o = \infty)$
 
@@ -341,7 +341,7 @@ $A_v \equiv \frac{v_o}{v_i} = \frac{R_L}{R_L + 1/g_m} (r_o = \infty)$
 
 $\rightarrow A_{v0} \equiv 1$(when $R_L = \infty$)
 
-![[Figure_59]_CD_with_r_o](../images/2024-04-16-Low_frequency_analysis/[Figure_59]_CD_with_r_o.jpg)
+![[Figure_59]_CD_with_r_o]({{site.url}}/images/2024-04-16-Low_frequency_analysis/[Figure_59]_CD_with_r_o.jpg)
 
 $A_v \equiv \frac{v_o}{v_i} = \frac{R_L \vert\vert r_o}{R_L \vert\vert r_o + 1/g_m} (r_o \ne \infty)$
 
