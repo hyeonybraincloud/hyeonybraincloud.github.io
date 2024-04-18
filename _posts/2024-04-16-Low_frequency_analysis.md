@@ -346,3 +346,9 @@ $\rightarrow A_{v0} \equiv 1$(when $R_L = \infty$)
 $A_v \equiv \frac{v_o}{v_i} = \frac{R_L \vert\vert r_o}{R_L \vert\vert r_o + 1/g_m} (r_o \ne \infty)$
 
 $G_v = A_v (v_i = v_{sig} \because R_{in} = \infty)$
+
+
+
+출처 및 참고)
+
+백광현 교수, 『전자회로』 강의자료, 중앙대학교 전자전기공학부, 2024
