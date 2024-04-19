@@ -93,4 +93,74 @@ $R_1, R_2$을 포함하여 입출력 간 관계를 나타내려면 다음 그림
 
 # 1.3 The Noninverting Configuration
 
+**1.3.1 The Closed-Loop Gain**
+
 ![[Figure_70]_the_inverting_configuration]({{site.url}}/images/2024-04-19-amplifier/[Figure_70]_the_inverting_configuration.jpg)
+
+**1.3.2 The Voltage Follower**
+
+voltage follower(a.k.a buffer amplifier)는 voltage gain이 1이다. 이는 impedance transformer 또는 power amplifier로 사용된다.
+
+![[Figure_71]_the_voltage_follower]({{site.url}}/images/2024-04-19-amplifier/[Figure_71]_the_voltage_follower.jpg)
+
+$v_O = v_I$, $R_{in} = \infty$, $R_{out} = 0$
+
+# 1.4 Integrator and Differentiators
+
+**1.4.1 The Inverting Configuration with General Impedances**
+
+기존의 inverting op amp의 저항 $R_1, R_2$을 frequency에 관하여 대체 표현하면 $Z_1(s), Z_2(s)$이다.
+
+따라서 다음이 성립한다.
+
+$\frac{V_o(s)}{V_i(s)} = - \frac{Z_2(s)}{Z_1(s)}$
+
+**1.4.2 The Inverting Integrator**
+
+![[Figure_72]_the_integrator]({{site.url}}/images/2024-04-19-amplifier/[Figure_72]_the_integrator.jpg)
+
+적분값에 (-)가 붙어 **inverting integrator**(a.k.a **Miller integrator**)라고 불린다.
+
+**※ Bode plot for the inverting integrator**
+
+![[Figure_73]_bode_plot]({{site.url}}/images/2024-04-19-amplifier/[Figure_73]_bode_plot.jpg)
+
+위 그림에서 볼 수 있듯이, magnitude bode plot은 기울기가 6 dB/octave(-20 dB/decade)인 직선의 형태이다.
+
+**※ DC problem of the integrator circuit**
+
+integrator는 corner frequency가 0인 STC low-pass network로 동작한다. 위 bode plot에서 볼 수 있듯이, $w=0$일 때, gain은 무한대이다. 즉, dc에서 op-amp는 open-loop로 동작한다. 또한, dc에서 capacitor는 open-circuit으로 동작한다. 따라서 input signal에 dc component가 적게라도 있으면 output은 무한대가 될 수 있다.
+
+**※ The Miller integrator with a large resistance $R_F$**
+
+앞서 언급된 DC problem은 capacitor에 저항 $R_F$을 병렬연결하여 완화할 수 있다. $R_F$까지 고려한 integrator의 transfer function은 다음과 같다.
+
+$\func{V_o(s)}{V_i(s)} = - \frac{R_F/R}{1+sCR_F}$
+
+![[Figure_74]_the_integrator_with_alleviated_dc_problem_by_R]({{site.url}}/images/2024-04-19-amplifier/[Figure_74]_the_integrator_with_alleviated_dc_problem_by_R.jpg)
+
+large resistance $R_F$ 때문에 다음과 같이 기존 특성에 변화가 생긴다.
+
+① dc gain이 $- \frac{R_F}{R}$이 된다.
+
+② $R_F$가 dc feedback path를 제공하여 integration 보다 덜 ideal하게 된다.
+
+③ $w=0$이었던 corner frequency가 $w= \frac{1}{CR_F}$로 바뀐다.
+
+# 2.1 Differential Amplifiers
+
+
+
+# 3.1 Cascode Amplifiers
+
+
+
+# 4.1 A Two-Stage CMOS Op Amp
+
+
+
+출처 및 참고)
+
+백광현 교수, 『전자회로』 강의자료, 중앙대학교 전자전기공학부, 2024
+
+심용 교수, 『메모리및SoC설계』 강의자료, 중앙대학교 전자전기공학부, 2024
