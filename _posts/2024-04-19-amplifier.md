@@ -135,7 +135,7 @@ integrator는 corner frequency가 0인 STC low-pass network로 동작한다. 위
 
 앞서 언급된 DC problem은 capacitor에 저항 $R_F$을 병렬연결하여 완화할 수 있다. $R_F$까지 고려한 integrator의 transfer function은 다음과 같다.
 
-$\func{V_o(s)}{V_i(s)} = - \frac{R_F/R}{1+sCR_F}$
+$\frac{V_o(s)}{V_i(s)} = - \frac{R_F/R}{1+sCR_F}$
 
 ![[Figure_74]_the_integrator_with_alleviated_dc_problem_by_R]({{site.url}}/images/2024-04-19-amplifier/[Figure_74]_the_integrator_with_alleviated_dc_problem_by_R.jpg)
 
