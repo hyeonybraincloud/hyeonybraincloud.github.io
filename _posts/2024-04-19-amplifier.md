@@ -231,7 +231,7 @@ $V_{in,CM}$이 충분히 높아졌을 때, $V_{DS3} > V_{GS3} - V_{TH3}$이고 #
 
 amplification을 위해서는, $V_{in,CM} \geq V_{GS1} + (V_{GS3} - V_{TH3})$ 여야 한다.
 
-![[Figure_84]_Common_mode_behavior3]({{site.url}}}/images/2024-04-19-amplifier/[Figure_84]_Common_mode_behavior3.png)
+![[Figure_84]_Common_mode_behavior3]({{site.url}}/images/2024-04-19-amplifier/[Figure_84]_Common_mode_behavior3.png)
 
 $V_{in, CM}$이 계속 증가하면서, $V_{out1}$과 $V_{out2}$은 상대적으로 일정한 값으로 유지되는데,_
 
@@ -245,7 +245,7 @@ $V_{GS1} + (V_{GS3} - V_{TH3}) \geq V_{in,CM} \geq V_{DD} - \frac{R_D I_SS}{2} +
 
 $M_1$과 $M_2$ 모두 triode region에 들어선 이후로, differential gain($\vert A_v \vert$)은 다음 그림처럼 감소한다.
 
-![[Figure_85]_Common_mode_behavior4]({{site.url}}}/images/2024-04-19-amplifier/[Figure_85]_Common_mode_behavior4.png)
+![[Figure_85]_Common_mode_behavior4]({{site.url}}/images/2024-04-19-amplifier/[Figure_85]_Common_mode_behavior4.png)
 
 
 
