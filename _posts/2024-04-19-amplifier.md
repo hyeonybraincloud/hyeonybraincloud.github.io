@@ -149,13 +149,123 @@ large resistance $R_F$ 때문에 다음과 같이 기존 특성에 변화가 생
 
 # 2.1 Differential Amplifiers
 
+**※ Single-Ended and Differential Operation**
+
+Single-Ended signal란?
+
+GND처럼 고정된 전위에 대해 측정되는 신호이다.
+
+Differential signal란?
+
+고정된 전위를 중심으로 신호가 동일하고 반대인 두 노드 사이에서 측정되는 신호이다.
+
+differential signal에서 "center" potential을 "common-mode"(CM) level라 한다.(bias)
+
+예를 들어, Single-Ended signal 출력의 peak amplitude가 $V_0$라 할 때, single-ended peak-to-peak swing은 $2V_0$, differential peak-to-peak swing은 $4V_0$이다.
+
+
+
+**※ Advantages of Differential Operation**
+
+signal-ended signaling보다 "environmental" noise에 대해 높은 immunity을 가지고 있다.
+
+예를 들어, clock line $L_2$에서의 transition은 line 간 capacitive coupling때문에 sensitive한 single line $L_1$의 signal을 손상시킨다. 만약 그 sensitive한 signal이 동일 위상과 반대 위상, 총 두 개로 나누어졌을 때, signal line $L_1$과 $L_2$의 중간에 위치한 clock line $L_2$의 transition은 그 두 개의 위상의 signals을 동일하게 손상시키지만, 그 위상 간 difference는 변함이 없다. 이를 **common-mode(CM) rejection**이라 한다.
+
+한편 **CM rejection**은 noise가 있는 supply voltage에도 발생한다.
+
+![[Figure_75]_CM_rejection2]({{site.url}}/images/2024-04-19-amplifier/[Figure_75]_CM_rejection2.jpg)
+
+왼쪽 그림에서 CS stage을 볼 수 있는데, 여기서 $V_{DD}$가 $\triangle V$만큼 변한다면, $V_{out}$도 같은 정도로 변할 수 있다. 오른쪽 그림은 대칭적인 형태의 회로를 보여주는데, $V_{DD}$의 noise가 $V_X$와 $V_Y$에 영향을 주지만, $V_X - V_Y = V_{out}$에는 영향을 미치지 않는다.
+
+위와 같은 원리로, differential operation은 sensitive signal("victims")만큼 noise가 많은 line("aggressors")에서도 유용하다.
+
+![[Figure_76]_CM_rejection3]({{site.url}}/images/2024-04-19-amplifier/[Figure_76]_CM_rejection3.jpg)
+
+위와 같은 완벽한 대칭성으로, $\overline{CK}$와 $CK$에서 sensitive signal line으로 연결된 component는 서로 상쇄된다.
+
+![[Figure_77]_CM_rejection4]({{site.url}}/images/2024-04-19-amplifier/[Figure_77]_CM_rejection4.jpg)
+
+첫 그림에서는 $V_{out}^+$와 $V_{out}^-$가 opposite jump을 거치므로, $V_{out}^+ - V_{out}^-$가 손상된다. 반면, 두 번째 그림처럼 회로를 수정하면 그 손상을 면할 수 있다.
+
+따라서 differential signaling은 얻을 수 있는 voltage swing의 최댓값을 증가시킬 수 있다. 즉, differential circuit에서 $X$ node에서 얻을 수 있는 output swing의 최댓값이 $V_{DD} - (V_{GS} - V_{TH})$라 할 때, $V_X - V_Y$에 대해서, $2(V_{DD} - (V_{GS} - V_{TH}))$을 얻을 수 있다.
+
+지금까지 살펴본 장점 외에도, differential circuit은 더 간단한 biasing과 더 높은 선형성이라는 장점이 있다. 이러한 장점은 면적의 증가라는 단점을 압도할 정도이다.
+
+**※ Basic Differential Pair**
+
+![[Figure_78]_Differential_Pair]({{site.url}}/images/2024-04-19-amplifier/[Figure_78]_Differential_Pair.png)
+
+위 그림에서 $V_{in1}$과 $V_{in2}$은 CM level $V_{in,CM}$가 포함된다. 이에 따라 그 output도 $V_{out,CM}$을 중심으로 swing한다. 이러한 회로는 상기했듯이 noise rejection과 higher output swing을 제공한다.
+
+$V_{in,CM}$이 변하면, $M_1$과 $M_2$에서의 bias current 또한 변하며, 그에 따라 transconductance와 output CM level도 변한다. 만약 input CM level이 극도로 낮으면, $V_{in1}$와 $V_{in2}$의 최솟값은 $M_1$과 $M_2$을 turn off할 것이며, 이는 output에서의 clipping(파형 왜곡)으로 이어질 것이다. 이에 따라 bias current는 input CM level의 영향을 최소한으로 받아야 한다.
+
+![[Figure_79]_Differential_Pair2]({{site.url}}/images/2024-04-19-amplifier/[Figure_79]_Differential_Pair2.png)
+
+앞서 언급된 문제의 해결책으로, input CM level에 independent한, current source $I_{SS} = I_{D1} + I_{D2}$을 포함시키는 방법이 있다.
+
+![[Figure_80]_Incorporating_current_source]({{site.url}}/images/2024-04-19-amplifier/[Figure_80]_Incorporating_current_source.png)
+
+만약 $V_{in1} = V_{in2}$라면 $M_1$과 $M_2$ 모두 bias current가 $\frac{I_{SS}}{2}$이며, output CM level은 항상 $V_{DD} - \frac{R_D I_{SS}}{2}$이다.
+
+![[Figure_81]_Incorporating_current_source_2]({{site.url}}/images/2024-04-19-amplifier/[Figure_81]_Incorporating_current_source_2.png)
+
+위 그래프에 의해 small-signal gain((b) 그래프에서의 기울기)은 $V_{in1} = V_{in2}$(equilibrium)일 때, 최대임을 알 수 있다. 또한, $vert V_{in1} - V_{in2} \vert$가 증가할수록 gain은 0에 수렴한다. 즉, input voltage swing이 증가할수록, circuit은 점점 nonlinear해진다는 것이다.
+
+아래 그림처럼 $V_{in1} = V_{in2} = V{in,CM}$라 하고, $V_{in,CM}$의 범위를 $0$에서 $V_{DD}$까지로 설정하겠다.
+
+![[Figure_82]_Common_mode_behavior]({{site.url}}/images/2024-04-19-amplifier/[Figure_82]_Common_mode_behavior.png)
+
+![[Figure_83]_Common_mode_behavior2]({{site.url}}/images/2024-04-19-amplifier/[Figure_83]_Common_mode_behavior2.png)
+
+**※ Basic Differential Pair: Common-mode Behavior**
+
+대칭성 때문에, $V_{out1} = V_{out2}$이다.
+
+한편, $V_{in,CM}=0$일 때, $M_1$과 $M_2$은 off이고, $I_{D3}=0$, $M_3$은 deep triode region에서 동작한다. 또한, $V_P=0$이며, $V_{out1} = V_{out2} = V_{DD}$이다.
+
+$I_{D1} = I_{D2} = 0$이므로, 회로는 signal amplification이 불가능하다.
+
+반면, $V_{in,CM} \geq V_{TH}$이면, $M_1$과 $M_2$은 켜진다. 비로소 $I_{D1}$과 $I_{D2}$, $V_P$가 증가한다.
+
+$V_{in,CM}$이 충분히 높아졌을 때, $V_{DS3} > V_{GS3} - V_{TH3}$이고 #M_3# node가 saturation region에서 동작하면, $I_{D1} + I_{D2}$는 일정해진다.
+
+amplification을 위해서는, $V_{in,CM} \geq V_{GS1} + (V_{GS3} - V_{TH3})$ 여야 한다.
+
+![[Figure_84]_Common_mode_behavior3]({{site.url}}}/images/2024-04-19-amplifier/[Figure_84]_Common_mode_behavior3.png)
+
+$V_{in, CM}$이 계속 증가하면서, $V_{out1}$과 $V_{out2}$은 상대적으로 일정한 값으로 유지되는데,_
+
+_만약 $V_{in,CM} > V_{out1,2} + V_{TH} = V_{DD} - \frac{R_D I_{SS}}{2} + V_{TH}$이면
+
+결과적으로 $M_1$과 $M_2$은 triode region에 들어선다.
+
+$V_{in,CM}$의 범위는 다음과 같다.
+
+$V_{GS1} + (V_{GS3} - V_{TH3}) \geq V_{in,CM} \geq V_{DD} - \frac{R_D I_SS}{2} + V_{TH}$
+
+$M_1$과 $M_2$ 모두 triode region에 들어선 이후로, differential gain($\vert A_v \vert$)은 다음 그림처럼 감소한다.
+
+![[Figure_85]_Common_mode_behavior4]({{site.url}}}/images/2024-04-19-amplifier/[Figure_85]_Common_mode_behavior4.png)
+
+
+
+**※ Basic Differential Pair: Output Swings**
+
+$V_{in,CM} - V_{TH} \geq V_{out} \geq V_{DD}$
+
+$V_{in,CM}$이 증가할수록 가능한 output swing은 작아진다.
+
+다시 말해, 큰 output swing을 얻기 위해서는 $V_{in,CM}$이 작아야 한다. 물론, $V_{GS1} + (V_{GS3} - V_{TH3}) \geq V_{in,CM}$
+
+output voltage의 실질적인 최솟값은 $V_{in,CM} + V_0 - V_{TH}$임을 알자.
+
+![[Figure_86]_Common_mode_behavior5]({{site.url}}/images/2024-04-19-amplifier/[Figure_86]_Common_mode_behavior5.png)
+
 
 
 # 3.1 Cascode Amplifiers
 
 
-
-# 4.1 A Two-Stage CMOS Op Amp
 
 
 
